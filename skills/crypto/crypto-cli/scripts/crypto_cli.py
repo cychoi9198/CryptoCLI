@@ -97,11 +97,19 @@ def write_output(data: bytes, out: str | None, newline: bool = True) -> None:
     if out:
         Path(out).write_bytes(data)
         print(f"[OK] 저장: {out} ({len(data)} bytes)", file=sys.stderr)
-    else:
-        sys.stdout.buffer.write(data)
-        if newline:
-            sys.stdout.buffer.write(b"\n")
-        sys.stdout.flush()
+    elif sys.stdout.isatty():
+        # 콘솔 출력: UTF-8 텍스트면 str 로 써서 Python 이 콘솔 API(Windows: UTF-16)로 출력하게 함
+        # (바이트를 그대로 쓰면 Windows 콘솔 코드페이지(cp949 등)로 해석되어 한글이 깨짐)
+        try:
+            sys.stdout.write(data.decode("utf-8") + ("\n" if newline else ""))
+            sys.stdout.flush()
+            return
+        except UnicodeDecodeError:
+            pass  # 바이너리 → 아래에서 바이트 그대로 출력
+    sys.stdout.buffer.write(data)
+    if newline:
+        sys.stdout.buffer.write(b"\n")
+    sys.stdout.flush()
 
 
 def parse_key(value: str, fmt: str) -> bytes:

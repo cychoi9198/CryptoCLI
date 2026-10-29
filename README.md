@@ -1,6 +1,48 @@
-# CryptoCLI — Hermes Agent 스킬 패키지
+# CryptoCLI
 
-RSA / AES / Base64 기능을 제공하는 Python CLI(`crypto_cli.py`)와, 이를 Hermes Agent 가 사용하도록 하는 스킬 `crypto-cli`(`SKILL.md`)를 묶은 패키지입니다.
+**[한국어](#한국어) · [English](#english) · [日本語](#日本語)**
+
+---
+
+## 한국어
+
+**CryptoCLI** 는 RSA·AES·Base64 작업을 명령 한 줄로 처리하는 Python CLI 이자, [Hermes Agent](https://hermes-agent.nousresearch.com/) 가 바로 쓸 수 있는 스킬 패키지입니다.
+
+- **RSA** — 키쌍 생성(키 길이·공개 지수·PEM/DER·PKCS#8/PKCS#1·개인키 비밀번호), 공개키 암호화(OAEP-SHA256 / PKCS#1 v1.5), 복호화(개인키 표준 복호화 + 개인키로 암호화된 데이터의 공개키 복원)
+- **AES** — 128/192/256bit 키 생성(CSPRNG 또는 seed 기반 PBKDF2 결정적 파생), GCM(기본)·CBC 암호화/복호화
+- **Base64** — 표준·URL-safe·패딩 생략 인코딩/디코딩
+- **에이전트 친화적** — 단일 파일, 명확한 종료 코드, stdout(결과)/stderr(상태) 분리, `-d`·`-f`·stdin 입력, 민감 데이터 취급 규칙을 담은 `SKILL.md`
+- **검증 완료** — 35개 항목 자체 테스트(`selftest.py`)와 OpenSSL 교차 검증, C#·Java·OpenSSL 연동 포맷 문서 제공
+
+검증된 암호 라이브러리 [pyca/cryptography](https://cryptography.io/) 위에서 동작하며, 약한 설정(2048bit 미만 RSA, GCM nonce 재사용 등)은 기본적으로 차단합니다.
+
+## English
+
+**CryptoCLI** is a Python command-line tool for everyday RSA, AES and Base64 tasks, packaged as a ready-to-use skill for [Hermes Agent](https://hermes-agent.nousresearch.com/).
+
+- **RSA** — key-pair generation (key size, public exponent, PEM/DER, PKCS#8/PKCS#1, password-protected private keys), public-key encryption (OAEP-SHA256 / PKCS#1 v1.5), and decryption (standard private-key decryption, plus public-key recovery of data encrypted with a private key)
+- **AES** — 128/192/256-bit key generation (CSPRNG, or deterministic PBKDF2 derivation from a seed), GCM (default) and CBC encryption/decryption
+- **Base64** — standard, URL-safe and unpadded encoding/decoding
+- **Agent-friendly** — single file, clear exit codes, results on stdout and status on stderr, input via `-d`, `-f` or stdin, and a `SKILL.md` with rules for handling secrets
+- **Tested** — 35-check self-test (`selftest.py`), cross-checked against OpenSSL, with a format reference for C#, Java and OpenSSL interoperability
+
+Built on the audited [pyca/cryptography](https://cryptography.io/) library, with weak settings (RSA below 2048 bits, GCM nonce reuse, etc.) blocked by default.
+
+## 日本語
+
+**CryptoCLI** は、RSA・AES・Base64 の処理をコマンド 1 行で行える Python CLI であり、[Hermes Agent](https://hermes-agent.nousresearch.com/) からそのまま利用できるスキルパッケージです。
+
+- **RSA** — 鍵ペア生成（鍵長・公開指数・PEM/DER・PKCS#8/PKCS#1・秘密鍵のパスワード保護）、公開鍵による暗号化（OAEP-SHA256 / PKCS#1 v1.5）、復号（秘密鍵による標準的な復号に加え、秘密鍵で暗号化されたデータの公開鍵による復元）
+- **AES** — 128/192/256bit 鍵生成（CSPRNG、または seed から PBKDF2 による決定的導出）、GCM（既定）・CBC による暗号化/復号
+- **Base64** — 標準・URL-safe・パディング省略のエンコード/デコード
+- **エージェント向け設計** — 単一ファイル、明確な終了コード、結果は stdout・状態は stderr、`-d`・`-f`・stdin による入力、機密データの取り扱いルールを記した `SKILL.md`
+- **検証済み** — 35 項目のセルフテスト（`selftest.py`）と OpenSSL とのクロス検証、C#・Java・OpenSSL 連携用フォーマット資料を同梱
+
+実績のある暗号ライブラリ [pyca/cryptography](https://cryptography.io/) 上で動作し、脆弱な設定（2048bit 未満の RSA、GCM nonce の再利用など）は既定で拒否します。
+
+---
+
+> 이하 상세 문서는 한국어로 작성되어 있습니다. / Detailed documentation below is in Korean. / 以下の詳細ドキュメントは韓国語で記載しています。
 
 ## 빠른 설치 (GitHub)
 

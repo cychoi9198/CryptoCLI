@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+# 키·암호문 실수 커밋 방지
+*.pem
+*.der
+*.key
+*.enc
+keys/
+.venv/

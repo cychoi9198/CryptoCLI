@@ -105,5 +105,5 @@ First public release. (`ff46dc1`)
 - `b64-encode` / `b64-decode`: 標準・URL-safe・パディング省略
 - Hermes Agent スキル（`SKILL.md`）、セルフテスト（`selftest.py`、35 項目）、連携フォーマット資料（`formats.md`）、インストールスクリプト（`install.sh`、`install.ps1`）、MIT ライセンス
 
-[1.1.1]: https://github.com/cychoi9198/CryptoCLI/compare/v1.1.0...v1.1.1
-[1.1.0]: https://github.com/cychoi9198/CryptoCLI/releases/tag/v1.1.0
+[1.1.1]: https://github.com/cychoi9198/CryptoCLI/compare/ff46dc1...25a6bee
+[1.1.0]: https://github.com/cychoi9198/CryptoCLI/tree/ff46dc1

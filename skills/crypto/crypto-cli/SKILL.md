@@ -53,7 +53,7 @@ Windows 에서는 `python3` 대신 `python` 또는 `py` 를 사용합니다.
 | 6 | `b64-encode` | 데이터 | `--url-safe` `--no-padding` |
 | 7 | `b64-decode` | 데이터 | `--url-safe` (공백·줄바꿈·패딩 누락 자동 보정) |
 
-`-k` 는 키 문자열 또는 `@파일경로`(AES), 파일 경로 또는 PEM 문자열(RSA)을 받는다.
+`-k` 는 키 문자열, `@파일경로` 또는 키 파일 경로(AES), 파일 경로 또는 PEM 문자열(RSA)을 받는다.
 세부 포맷은 `${HERMES_SKILL_DIR}/references/formats.md` 참조.
 
 ## Procedure

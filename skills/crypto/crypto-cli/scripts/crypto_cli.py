@@ -105,13 +105,16 @@ def write_output(data: bytes, out: str | None, newline: bool = True) -> None:
 
 
 def parse_key(value: str, fmt: str) -> bytes:
-    """AES 키 문자열(hex/base64) 또는 @파일경로 를 바이트로"""
+    """AES 키 문자열(hex/base64), @파일경로, 또는 존재하는 키 파일 경로를 바이트로"""
     if value.startswith("@"):
         value = Path(value[1:]).read_text(encoding="ascii").strip()
+    elif len(value) < 260 and Path(value).is_file():  # '@' 없이 파일 경로를 준 경우도 허용
+        value = Path(value).read_text(encoding="ascii").strip()
     try:
         key = bytes.fromhex(value) if fmt == "hex" else base64.b64decode(value, validate=True)
     except (binascii.Error, ValueError) as e:
-        raise CliError(f"키 형식({fmt})이 올바르지 않습니다: {e}") from e
+        raise CliError(f"키 형식({fmt})이 올바르지 않습니다: {e} "
+                       f"(키 파일이면 경로가 맞는지 확인하세요. 예: -k \"@C:\\temp\\aes.key\")") from e
     if len(key) * 8 not in AES_BITS:
         raise CliError(f"AES 키 길이는 128/192/256 bit 이어야 합니다. (입력: {len(key) * 8} bit)")
     return key

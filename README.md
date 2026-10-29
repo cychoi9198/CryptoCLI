@@ -30,6 +30,7 @@ cd CryptoCLI
 CryptoCLI/
 ├── README.md                      ← 이 문서 (설치·운영 안내)
 ├── LICENSE                        ← MIT
+├── CHANGELOG.md                   ← 업데이트 기록 (3개 언어)
 ├── requirements.txt               ← cryptography>=41
 ├── install.sh                     ← Linux/macOS 설치 스크립트
 ├── install.ps1                    ← Windows 설치 스크립트
@@ -124,6 +125,10 @@ python3 skills/crypto/crypto-cli/scripts/crypto_cli.py <명령> --help
 - `selftest.py` 35개 항목 통과: 키 생성 옵션 조합, RSA OAEP/PKCS1 왕복, 암호화된 개인키, 공개키 복호화(바이너리/base64), AES 128/192/256·GCM/CBC 왕복, GCM 변조·AAD 불일치 탐지, seed 결정성 및 PBKDF2 명세 일치, Base64 표준/URL-safe/stdin, 오류 입력 거부
 - OpenSSL 3.0.13 교차 검증: OAEP-SHA256 양방향, `pkeyutl -sign`(PKCS1) 결과의 공개키 복원
 
+### 업데이트 기록
+
+[CHANGELOG.md](CHANGELOG.md) 참조. 현재 버전: **1.1.1**
+
 ### 라이선스
 
 MIT — [LICENSE](LICENSE) 참조.
@@ -156,6 +161,7 @@ cd CryptoCLI
 CryptoCLI/
 ├── README.md                      ← this document (installation & operation)
 ├── LICENSE                        ← MIT
+├── CHANGELOG.md                   ← change history (3 languages)
 ├── requirements.txt               ← cryptography>=41
 ├── install.sh                     ← installer for Linux/macOS
 ├── install.ps1                    ← installer for Windows
@@ -250,6 +256,10 @@ See `skills/crypto/crypto-cli/SKILL.md` for per-command options and examples, an
 - `selftest.py`, 35 checks passed: key-generation option combinations, RSA OAEP/PKCS1 round trips, encrypted private keys, public-key decryption (binary/base64), AES 128/192/256 GCM/CBC round trips, detection of GCM tampering and AAD mismatch, seed determinism and conformance to the PBKDF2 spec, Base64 standard/URL-safe/stdin, rejection of invalid input
 - Cross-checked with OpenSSL 3.0.13: OAEP-SHA256 in both directions, public-key recovery of `pkeyutl -sign` (PKCS1) output
 
+### Changelog
+
+See [CHANGELOG.md](CHANGELOG.md). Current version: **1.1.1**
+
 ### License
 
 MIT — see [LICENSE](LICENSE).
@@ -282,6 +292,7 @@ cd CryptoCLI
 CryptoCLI/
 ├── README.md                      ← 本ドキュメント（インストール・運用案内）
 ├── LICENSE                        ← MIT
+├── CHANGELOG.md                   ← 更新履歴（3 言語）
 ├── requirements.txt               ← cryptography>=41
 ├── install.sh                     ← Linux/macOS 用インストールスクリプト
 ├── install.ps1                    ← Windows 用インストールスクリプト
@@ -375,6 +386,10 @@ python3 skills/crypto/crypto-cli/scripts/crypto_cli.py <コマンド> --help
 
 - `selftest.py` 35 項目合格: 鍵生成オプションの組み合わせ、RSA OAEP/PKCS1 の往復、暗号化された秘密鍵、公開鍵による復号（バイナリ/base64）、AES 128/192/256・GCM/CBC の往復、GCM の改ざん・AAD 不一致の検出、seed の決定性と PBKDF2 仕様との一致、Base64 標準/URL-safe/stdin、不正入力の拒否
 - OpenSSL 3.0.13 とのクロス検証: OAEP-SHA256 の双方向、`pkeyutl -sign`（PKCS1）出力の公開鍵による復元
+
+### 更新履歴
+
+[CHANGELOG.md](CHANGELOG.md) を参照してください。現在のバージョン: **1.1.1**
 
 ### ライセンス
 

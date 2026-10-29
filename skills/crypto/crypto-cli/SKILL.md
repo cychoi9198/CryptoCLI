@@ -1,7 +1,7 @@
 ---
 name: crypto-cli
 description: RSA keygen/encrypt/decrypt, AES-128/192/256 keygen/encrypt/decrypt (GCM, CBC) and Base64 encode/decode via a local Python CLI. Use when asked to generate RSA or AES keys, encrypt/decrypt data, recover data encrypted with an RSA private key using a public key, or convert data to/from Base64. (RSA·AES 키 생성, 암·복호화, Base64 변환)
-version: 1.1.0
+version: 1.1.1
 author: CCY
 license: MIT
 metadata:
